@@ -1,0 +1,2 @@
+# EverBlog
+ghost blog theme
