@@ -55,6 +55,9 @@ function loadBlogListByURL(url, isSetPushState) {
         type: "get",
         url: url,
         timeout: 10000,
+        beforeSend: function () {
+            NProgress.start();
+        },
         success: function (dates) {
             if (isSetPushState) {
                 history.pushState(null, null, url);
@@ -62,7 +65,7 @@ function loadBlogListByURL(url, isSetPushState) {
             $("#blog-list").html($("#blog-list", $.parseHTML(dates)).html());
         },
         complete: function () {
-
+            NProgress.done();
         },
         error: function () {
             alert("失败，请稍后再试！");
@@ -75,6 +78,9 @@ function loadBlogByURL(url) {
         type: "get",
         url: url,
         timeout: 10000,
+        beforeSend: function () {
+            NProgress.start();
+        },
         success: function (dates) {
             history.pushState(null, null, url);
             var html = $.parseHTML(dates);
@@ -82,7 +88,7 @@ function loadBlogByURL(url) {
             document.title = $(".blog-view-title", html).html();
         },
         complete: function () {
-
+            NProgress.done();
         },
         error: function () {
             alert("失败，请稍后再试！");
