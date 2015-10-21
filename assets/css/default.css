@@ -1,0 +1,166 @@
+html {
+    height: 100%;
+    font-size: 16px;
+}
+
+body {
+    height: 100%;
+    font-size: 100%;
+    font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif, "宋体" ! important;
+}
+
+.scroll {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.scroll:hover {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 1);
+}
+
+.scroll::-webkit-scrollbar {
+    width: 0;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(200, 200, 233, 1);
+}
+
+.container-fluid, .row {
+    height: 100%;
+}
+
+.octicon {
+    width: 16px;
+    height: 16px;
+}
+
+.text-overflow {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/*--------------------------------------*/
+/*-------------导航栏（左列）--------------*/
+/*--------------------------------------*/
+#navigation {
+    height: 100%;
+}
+
+#logo img {
+    border-radius: 35px;
+    width: 70px;
+    height: 70px;
+}
+
+#category-list .nav-item {
+    margin: 0;
+}
+
+#category-list .nav-link {
+    border-radius: 0;
+}
+
+/*----------------------------------------*/
+/*-------------文章列表（中列）--------------*/
+/*----------------------------------------*/
+#blog-list {
+    height: 100%;
+}
+
+#blog-list .list-group {
+    height: 100%;
+    margin-bottom: 0;
+}
+
+#blog-list .tag-stats {
+    height: 5rem;
+    list-style-position: inside;
+    margin: 0;
+    padding: 7px 12px;
+    text-align: center;
+}
+
+#blog-list .tag-stats-header {
+    font-size: 1.7rem;
+
+}
+
+#blog-list .tag-stats-count {
+    font-size: 0.9rem;
+}
+
+#blog-list .blog-excerpt {
+    /*transition: color 2s ease-in-out;*/
+    cursor: pointer;
+    height: 7.5rem;
+    list-style-position: inside;
+    margin: 0;
+    padding: 7px 12px;
+
+}
+
+.blog-excerpt-title {
+
+}
+
+.blog-excerpt-date {
+    font-size: 0.7rem;
+}
+
+.blog-excerpt-content {
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.2rem;
+    height: 3.6rem;
+}
+
+/*----------------------------------------*/
+/*-------------文章内容（右列）--------------*/
+/*----------------------------------------*/
+#blog-view {
+    height: 100%;
+}
+
+.blog-view-container {
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+    max-width: 1280px;
+    min-width: 240px;
+    padding: 0 1rem;
+}
+
+.blog-view-container header {
+    padding-top: 3rem;
+}
+
+.blog-view-title {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.blog-view-date {
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.blog-view-container hr {
+    border-top: .0625rem solid rgba(255, 255, 255, .8);
+}
+
+.blog-view-content {
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.3rem;
+}
+
+/*博客文本样式*/

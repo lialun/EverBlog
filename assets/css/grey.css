@@ -1,0 +1,157 @@
+/*--------------------------------------*/
+/*-------------导航栏（左列）--------------*/
+/*--------------------------------------*/
+/*主体*/
+#navigation {
+    background-color: #222222;
+    box-shadow: inset -15px 0 15px -15px #040404;
+}
+
+/*按钮样式*/
+#category-list .nav-link {
+    color: #FFCC00;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+#category-list .nav-link:hover {
+    background-color: #222222;
+    box-shadow: inset -15px 0 15px -15px #040404;
+}
+
+#category-list .nav-link:focus {
+    color: #222222;
+    background-color: #FFCC00;
+    webkit-box-shadow: inset -15px 0 15px -15px #040404;
+    -moz-box-shadow: inset -15px 0 15px -15px #040404;
+    box-shadow: inset -15px 0 15px -15px #040404;
+}
+
+/*----------------------------------------*/
+/*-------------文章列表（中列）--------------*/
+/*----------------------------------------*/
+/*主体*/
+#blog-list {
+    box-shadow: inset -15px 0 15px -15px #090909;
+    background-color: #282828;
+}
+
+/*列表元素*/
+#blog-list .list-group-item {
+    background-color: #282828;
+    webkit-box-shadow: inset -15px 0 15px -15px #090909;
+    -moz-box-shadow: inset -15px 0 15px -15px #090909;
+    box-shadow: inset -15px 0 15px -15px #090909;
+    border: 0;
+    color: #FFCC00;
+}
+
+/*标签博客列表顶栏统计*/
+#blog-list .tag-stats {
+    background-color: #3F1F1F;
+    border: 0;
+    color: #DDDDDD;
+    text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.8);
+    webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+#blog-list .tag-stats-header {
+
+}
+
+#blog-list .tag-stats-count {
+
+}
+
+/*博客列表*/
+#blog-list .blog-excerpt {
+    border-bottom: 1px solid rgba(22, 22, 22, 0.4);
+    border-bottom-left-radius: 0;
+    background-color: #282828;
+    color: #FFCC00;
+}
+
+#blog-list .blog-excerpt:focus, #blog-list .blog-excerpt:active, #blog-list .blog-excerpt.active {
+    background-color: #202020;
+    -webkit-box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.7);
+    box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.7);
+}
+
+#blog-list .blog-excerpt:hover {
+    -webkit-box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.7);
+    box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.7);
+}
+
+.blog-excerpt-title {
+
+}
+
+.blog-excerpt-date {
+    color: #BBBBBB;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.blog-excerpt-content {
+    color: #C0C0C0;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+/*----------------------------------------*/
+/*-------------文章内容（右列）--------------*/
+/*----------------------------------------*/
+#blog-view {
+    background-color: #333333;
+}
+
+.blog-view-title {
+    color: #FFCC00;
+}
+
+.blog-view-date {
+    color: #DDDDDD;
+}
+
+.blog-view-container hr {
+    border-top: .0625rem solid rgba(255, 255, 255, .8);
+}
+
+.blog-view-content {
+    color: #E0E0E0;
+}
+
+/*博客文本样式*/
+.blog-view-content h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: #FFCC00;
+}
+
+.blog-view-content code {
+    box-shadow: inset 0 1px 10px rgba(0, 0, 0, .3), 0 1px 0 rgba(255, 255, 255, .1), 0 -1px 0 rgba(0, 0, 0, .5);
+    background-color: #282828;
+    color: #FFCC00;
+}
+
+.blog-view-content pre {
+    border: 0;
+    box-shadow: inset 0 1px 10px rgba(0, 0, 0, .3), 0 1px 0 rgba(255, 255, 255, .1), 0 -1px 0 rgba(0, 0, 0, .5);
+    background-color: #282828;
+    color: #FFCC00;
+}
+
+.blog-view-content pre code {
+    box-shadow: none;
+}
+
+.blog-view-content blockquote {
+    border-left: 5px solid #FFCC00;
+}
+
+.blog-view-content a {
+    color: #FFCC00;
+}
+
+.blog-view-content a:visited {
+    color: #FF9900;
+}

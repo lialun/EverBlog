@@ -1,0 +1,17 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+
+{{! The big featured header }}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-2 col-md-3" id="navigation">
+			{{navigation}}
+        </div>
+        <div class="col-lg-4 col-md-5" id="blog-list">
+	        {{> "tag-blog-list"}}
+        </div>
+        <div class="col-md-16 col-lg-18" id="blog-view">
+			{{> "blog-view"}}
+        </div>
+    </div>
+</div>

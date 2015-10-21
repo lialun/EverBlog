@@ -1,0 +1,21 @@
+<div class="row scroll">
+    <br>
+
+    <div id="logo" class="text-center">
+        <a href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}"></a>
+    </div>
+    <br>
+
+    <div id="category">
+        <div id="category-list" class="scroll">
+            <ul class="nav nav-stacked">
+				{{#foreach navigation}}
+                    <li class="nav-item">
+                        <a href="{{url absolute="true"}}" class="nav-link nav-{{slug}}" data-toggle="tab"
+                           onclick="navigationFunction(this)">{{label}}</a>
+                    </li>
+				{{/foreach}}
+            </ul>
+        </div>
+    </div>
+</div>
