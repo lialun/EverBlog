@@ -22,6 +22,18 @@
             firstNavigationLink.addClass("active");
         }
     }
+    //
+    $('.blog-list #list-group').infinitescroll({
+        debug: false,
+        loadingText: "Loading the next page...",
+        donetext: "end",
+        nextSelector: "#blog-list .pagination a.next-page",
+        navSelector: "#blog-list .pagination",
+        contentSelector: ".blog-list #list-group",
+        itemSelector: ".blog-list #list-group > article"
+    }, function () {
+
+    });
 })(jQuery);
 
 function navigationFunction(obj) {
