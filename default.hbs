@@ -6,14 +6,16 @@
     <title>{{meta_title}}</title>
     <meta name="description" content="{{meta_description}}"/>
     <meta name="HandheldFriendly" content="True"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+    <meta name="viewport"
+          content="minimal-ui, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telphone=no, email=no"/>
     <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
     <link rel="stylesheet" type="text/css" href="{{asset "css/bootstrap.min.css"}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset "css/default.css"}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset "css/grey.css"}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset "css/nprogress.css"}}"/>
-	{{ghost_head}}
+    {{ghost_head}}
 </head>
 <body class="{{body_class}}">
 {{{body}}}
@@ -22,6 +24,7 @@
 <script type="text/javascript" src="{{asset "js/bootstrap.min.js"}}"></script>
 <script type="text/javascript" src="{{asset "js/nprogress.js"}}"></script>
 <script type="text/javascript" src="{{asset "js/jquery.infinitescroll.min.js"}}"></script>
+<script type="text/javascript" src="{{asset "js/headroom.min.js"}}"></script>
 <script type="text/javascript"
         src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
 <script type="text/javascript" src="{{asset "js/default.js"}}"></script>

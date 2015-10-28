@@ -1,14 +1,18 @@
 {{!< default}}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-2 col-md-3" id="navigation">
-			{{navigation}}
+        <div class="col-xs-12 col-md-4 col-lg-3" id="left-bar">
+            <div class="row">
+                <div class="col-xs-4 col-md-4" id="navigation">
+                    {{navigation}}
+                </div>
+                <div class="col-xs-8 col-md-8" id="blog-list">
+                    {{> "blog-list"}}
+                </div>
+            </div>
         </div>
-        <div class="col-lg-4 col-md-5" id="blog-list">
-			{{> "blog-list"}}
-        </div>
-        <div class="col-md-16 col-lg-18" id="blog-view">
-			{{> "blog-view"}}
+        <div class="hidden-xs hidden-sm col-xs-12 col-md-8 col-lg-9" id="blog-view">
+            {{> "blog-view"}}
         </div>
     </div>
 </div>

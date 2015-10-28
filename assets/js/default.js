@@ -22,21 +22,26 @@
             firstNavigationLink.addClass("active");
         }
     }
+    ////
+    //$('.blog-list #list-group').infinitescroll({
+    //    debug: false,
+    //    loadingText: "Loading the next page...",
+    //    donetext: "end",
+    //    nextSelector: "#blog-list .pagination a.next-page",
+    //    navSelector: "#blog-list .pagination",
+    //    contentSelector: ".blog-list #list-group",
+    //    itemSelector: ".blog-list #list-group > article"
+    //}, function () {
     //
-    $('.blog-list #list-group').infinitescroll({
-        debug: false,
-        loadingText: "Loading the next page...",
-        donetext: "end",
-        nextSelector: "#blog-list .pagination a.next-page",
-        navSelector: "#blog-list .pagination",
-        contentSelector: ".blog-list #list-group",
-        itemSelector: ".blog-list #list-group > article"
-    }, function () {
-
-    });
+    //});
+    headroomInit();
 })(jQuery);
 
 function navigationFunction(obj) {
+    //
+    $(obj).parent().siblings().children().removeClass("active");
+    $(obj).addClass("active");
+    //
     var host = window.location.host;
     var link = $(obj).attr("href");
     if (link.match("^(http|https)://" + host + "/.*", "i")) {
@@ -59,7 +64,6 @@ function loadBlog(obj) {
     //load blog
     var url = $(obj).attr("href");
     loadBlogByURL(url);
-
 }
 
 function loadBlogListByURL(url, isSetPushState) {
@@ -96,8 +100,11 @@ function loadBlogByURL(url) {
         success: function (dates) {
             history.pushState(null, null, url);
             var html = $.parseHTML(dates);
+            smallScreenPageChange(2);
             $("#blog-view").html($("#blog-view", html).html());
+            PR.prettyPrint();
             document.title = $(".blog-view-title", html).html();
+            headroomInit();
         },
         complete: function () {
             NProgress.done();
@@ -106,4 +113,35 @@ function loadBlogByURL(url) {
             alert("失败，请稍后再试！");
         }
     });
+}
+
+function bigScreenPageChange(page) {
+    if (page == 1) {
+        $("#left-bar").removeClass("hidden-md").removeClass("hidden-lg");
+        $("#blog-view").addClass("hidden-md").addClass("hidden-lg");
+    } else if (page == 2) {
+        $("#left-bar").addClass("hidden-md").addClass("hidden-lg");
+        $("#blog-view").removeClass("hidden-md").removeClass("hidden-lg");
+    }
+}
+
+function smallScreenPageChange(page) {
+    if (page == 1) {
+        $("#left-bar").removeClass("hidden-xs").removeClass("hidden-sm");
+        $("#blog-view").addClass("hidden-xs").addClass("hidden-sm");
+    } else if (page == 2) {
+        $("#left-bar").addClass("hidden-xs").addClass("hidden-sm");
+        $("#blog-view").removeClass("hidden-xs").removeClass("hidden-sm");
+    }
+}
+
+function headroomInit() {
+    var myElement = document.querySelector("#blog-view-header");
+    if (myElement == null) {
+        return;
+    }
+    var headroom = new Headroom(myElement, {
+        scroller: document.querySelector(".blog-view-container")
+    });
+    headroom.init();
 }

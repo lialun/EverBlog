@@ -18,7 +18,7 @@
     box-shadow: inset -15px 0 15px -15px #040404;
 }
 
-#category-list .nav-link:focus {
+#category-list .nav-link:focus,#category-list .nav-link.active {
     color: #222222;
     background-color: #FFCC00;
     webkit-box-shadow: inset -15px 0 15px -15px #040404;
@@ -105,7 +105,16 @@
 #blog-view {
     background-color: #333333;
 }
-
+#blog-view-header div {
+    background-color: #ffcc00;
+    border-radius: 0.2rem;
+    margin: 5px 10px 0 10px;
+}
+#blog-view-header button {
+    color: #282828;
+    margin: 3px 5px;
+    padding: 6px 12px;
+}
 .blog-view-title {
     color: #FFCC00;
 }
