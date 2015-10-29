@@ -102,7 +102,7 @@ function loadBlogByURL(url) {
             var html = $.parseHTML(dates);
             smallScreenPageChange(2);
             $("#blog-view").html($("#blog-view", html).html());
-            PR.prettyPrint();
+            Prism.highlightAll();
             document.title = $(".blog-view-title", html).html();
             headroomInit();
         },
