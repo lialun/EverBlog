@@ -13,6 +13,17 @@ img {
     max-width: 100%;
 }
 
+pre {
+    overflow-x: hidden;
+}
+
+code {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
 .scroll {
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
@@ -63,10 +74,6 @@ img {
 
 .headroom--pinned {
     top: 0;
-}
-
-pre {
-    overflow-x: hidden;
 }
 
 /*--------------------------------------*/
