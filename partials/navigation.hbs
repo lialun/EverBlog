@@ -9,13 +9,23 @@
     <div id="category">
         <div id="category-list" class="scroll">
             <ul class="nav nav-stacked">
-				{{#foreach navigation}}
+                {{#foreach navigation}}
                     <li class="nav-item">
                         <a href="{{url absolute="true"}}" class="nav-link nav-{{slug}}" data-toggle="tab"
                            onclick="navigationFunction(this)">{{label}}</a>
                     </li>
-				{{/foreach}}
+                {{/foreach}}
             </ul>
         </div>
     </div>
+    <footer id="nav-footer">
+        <div id="style-changer">
+            <a id="light" href="javascript:changeTheme('light');" style="display: inline-block;">
+                <img src="http://qishanshan.com/assets/images/mytheme/PH_Day_50x50.png">
+            </a>
+            <a id="dark" href="javascript:changeTheme('dark');" style="display: none;">
+                <img src="http://qishanshan.com/assets/images/mytheme/PH_Night_50x50.png">
+            </a>
+        </div>
+    </footer>
 </div>

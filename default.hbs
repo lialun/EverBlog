@@ -6,27 +6,29 @@
     <title>{{meta_title}}</title>
     <meta name="description" content="{{meta_description}}"/>
     <meta name="HandheldFriendly" content="True"/>
-    <meta name="viewport"
-          content="minimal-ui, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="format-detection" content="telphone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="apple-touch-icon" href="{{@blog.logo}}"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    {{> config}}
     <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
-    <link rel="stylesheet" type="text/css" href="{{asset "css/bootstrap.min.css"}}"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="{{asset "css/default.css"}}"/>
-    <link rel="stylesheet" type="text/css" href="{{asset "css/grey.css"}}"/>
-    <link rel="stylesheet" type="text/css" href="{{asset "css/prism.css"}}"/>
-    <link rel="stylesheet" type="text/css" href="{{asset "css/nprogress.css"}}"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/animate.css/3.4.0/animate.min.css">
     {{ghost_head}}
 </head>
 <body class="{{body_class}}">
 {{{body}}}
 {{ghost_foot}}
-<script type="text/javascript" src="{{asset "js/jquery.min.js"}}"></script>
-<script type="text/javascript" src="{{asset "js/bootstrap.min.js"}}"></script>
-<script type="text/javascript" src="{{asset "js/nprogress.js"}}"></script>
-<script type="text/javascript" src="{{asset "js/jquery.infinitescroll.min.js"}}"></script>
-<script type="text/javascript" src="{{asset "js/headroom.min.js"}}"></script>
-<script type="text/javascript" src="{{asset "js/prism.js"}}"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/jquery-infinitescroll/2.1.0/jquery.infinitescroll.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/headroom/0.7.0/headroom.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/prism/0.0.1/prism.min.js"></script>
 <script type="text/javascript" src="{{asset "js/default.js"}}"></script>
 </body>
 </html>

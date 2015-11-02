@@ -8,7 +8,9 @@ body {
     font-size: 100%;
     font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif, "宋体" ! important;
 }
-
+div,a {
+    transition:all 0.1s linear;
+}
 img {
     max-width: 100%;
 }
@@ -18,10 +20,10 @@ pre {
 }
 
 code {
-    white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -o-pre-wrap;
-    word-wrap: break-word;
+    white-space: pre-wrap !important;
+    white-space: -moz-pre-wrap !important;
+    white-space: -o-pre-wrap !important;
+    word-wrap: break-word !important;
 }
 
 .scroll {
@@ -65,15 +67,18 @@ code {
 
 .headroom {
     position: fixed;
-    transition: all .3s ease-in-out;
 }
 
-.headroom--unpinned {
-    top: -100px;
-}
+/*.slideUp {*/
+    /*top: -100px;*/
+/*}*/
 
-.headroom--pinned {
-    top: 0;
+/*.slideDown {*/
+    /*top: 0;*/
+/*}*/
+
+.list-group-item:first-child, .list-group-item:last-child {
+    border-radius: 0;
 }
 
 /*--------------------------------------*/
@@ -94,12 +99,29 @@ code {
     height: 70px;
 }
 
+#category-list {
+    padding-bottom: 100px;
+}
+
 #category-list .nav-item {
     margin: 0;
 }
 
 #category-list .nav-link {
     border-radius: 0;
+}
+
+#nav-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+#style-changer {
+    margin: 15px auto 30px;
+    width: 50px;
+    height: 50px;
+    position: relative;
 }
 
 /*----------------------------------------*/
@@ -133,7 +155,6 @@ code {
 
 #blog-list .blog-excerpt {
     cursor: pointer;
-    height: 7rem;
     list-style-position: inside;
     margin: 0;
     padding: 7px 12px;
@@ -141,7 +162,7 @@ code {
 }
 
 .blog-excerpt-title {
-
+    padding-bottom: 0.1rem;
 }
 
 .blog-excerpt-date {
@@ -151,8 +172,8 @@ code {
 .blog-excerpt-content {
     font-size: 0.8rem;
     font-weight: 400;
-    line-height: 1.2rem;
-    height: 3.6rem;
+    line-height: 1.25rem;
+    height: 3.75rem;
     text-overflow: ellipsis;
     overflow: hidden;
 }
@@ -196,7 +217,7 @@ code {
 }
 
 .blog-view-container header {
-    padding-top: 3rem;
+    padding-top: 4rem;
 }
 
 .blog-view-title {

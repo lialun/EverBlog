@@ -1,3 +1,6 @@
+/*Use Prism to highlight code*/
+@import url("//ghost-blog.b0.upaiyun.com/css/prism/prism-okaidia.css");
+
 /*--------------------------------------*/
 /*-------------导航栏（左列）--------------*/
 /*--------------------------------------*/
@@ -18,7 +21,7 @@
     box-shadow: inset -15px 0 15px -15px #040404;
 }
 
-#category-list .nav-link:focus,#category-list .nav-link.active {
+#category-list .nav-link:focus, #category-list .nav-link.active {
     color: #222222;
     background-color: #FFCC00;
     webkit-box-shadow: inset -15px 0 15px -15px #040404;
@@ -73,6 +76,7 @@
 }
 
 #blog-list .blog-excerpt:focus, #blog-list .blog-excerpt:active, #blog-list .blog-excerpt.active {
+    z-index: 0;
     background-color: #202020;
     -webkit-box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.7);
     -moz-box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.7);
@@ -105,16 +109,19 @@
 #blog-view {
     background-color: #333333;
 }
+
 #blog-view-header div {
     background-color: #ffcc00;
     border-radius: 0.2rem;
-    margin: 5px 10px 0 10px;
+    margin: 15px 12px 0;
 }
+
 #blog-view-header button {
     color: #282828;
     margin: 3px 5px;
     padding: 6px 12px;
 }
+
 .blog-view-title {
     color: #FFCC00;
 }
@@ -136,7 +143,7 @@
     color: #FFCC00;
 }
 
-.blog-view-content code {
+.blog-view-content code[class^="language-"], .blog-view-content code:not(.class) {
     box-shadow: inset 0 1px 10px rgba(0, 0, 0, .3), 0 1px 0 rgba(255, 255, 255, .1), 0 -1px 0 rgba(0, 0, 0, .5);
     background-color: #282828;
     color: #FFCC00;
@@ -150,7 +157,7 @@
 }
 
 .blog-view-content pre code {
-    box-shadow: none;
+    box-shadow: none!important;
 }
 
 .blog-view-content blockquote {
