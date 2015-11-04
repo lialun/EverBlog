@@ -13,8 +13,8 @@
         }else{
             setCookie("themeStyle", "light");
         }
-    }
-    changeTheme(getCookie("themeStyle"))
+    };
+    changeTheme(getCookie("themeStyle"));
     //navigation active
     var url = window.location.href;
     var isMatchingCategory = false;
@@ -26,7 +26,7 @@
                 return false;
             }
         }
-    )
+    );
     //load blog list(if url is blog, page do not has blog list in default)
     if ($("#blog-list .list-group").text().trim().length == 0) {
         //load first navigation link
@@ -36,6 +36,10 @@
         if (!isMatchingCategory) {
             firstNavigationLink.addClass("active");
         }
+    }
+    //load default blog (if url is main page or tag, blog content page will be blank)
+    if ($("#blog-view").text().trim().length == 0 && default_post!="") {
+        loadBlogByURL(default_post,false);
     }
     //Scroll4Ever
     bindScroll4Ever();
@@ -56,7 +60,7 @@ function navigationFunction(obj) {
         if (link.match("^(http|https)://" + host + "/tag/.*", "i") || link.match("^(http|https)://" + host + "/?$", "i")) {
             loadBlogListByURL(link, true);
         } else if (link.match("^(http|https)://" + host + "/.*/$", "i")) {
-            loadBlogByURL(link);
+            loadBlogByURL(link,true);
         } else {
             window.open(link, '_self')
         }
@@ -71,10 +75,10 @@ function loadBlog(obj) {
     $(obj).addClass("active");
     //load blog
     var url = $(obj).attr("href");
-    loadBlogByURL(url);
+    loadBlogByURL(url,true);
 }
 
-function loadBlogListByURL(url, isSetPushState) {
+function loadBlogListByURL(url, isSetReplaceState) {
     $.ajax({
         type: "get",
         url: url,
@@ -83,8 +87,8 @@ function loadBlogListByURL(url, isSetPushState) {
             NProgress.start();
         },
         success: function (dates) {
-            if (isSetPushState) {
-                history.pushState(null, null, url);
+            if (isSetReplaceState) {
+                history.replaceState(null, null, url);
             }
             $("#blog-list").html($("#blog-list", $.parseHTML(dates)).html());
             bindScroll4Ever();
@@ -98,7 +102,7 @@ function loadBlogListByURL(url, isSetPushState) {
     });
 }
 
-function loadBlogByURL(url) {
+function loadBlogByURL(url, isSetReplaceState) {
     $.ajax({
         type: "get",
         url: url,
@@ -107,7 +111,9 @@ function loadBlogByURL(url) {
             NProgress.start();
         },
         success: function (dates) {
-            history.pushState(null, null, url);
+            if (isSetReplaceState) {
+                history.replaceState(null, null, url);
+            }
             var html = $.parseHTML(dates);
             smallScreenPageChange(2);
             $("#blog-view").html($("#blog-view", html).html());
