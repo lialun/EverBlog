@@ -8,9 +8,11 @@ body {
     font-size: 100%;
     font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif, "宋体" ! important;
 }
-div,a {
-    transition:all 0.1s linear;
+
+div, a {
+    transition: all 0.1s linear;
 }
+
 img {
     max-width: 100%;
 }
@@ -68,14 +70,6 @@ code {
 .headroom {
     position: fixed;
 }
-
-/*.slideUp {*/
-    /*top: -100px;*/
-/*}*/
-
-/*.slideDown {*/
-    /*top: 0;*/
-/*}*/
 
 .list-group-item:first-child, .list-group-item:last-child {
     border-radius: 0;
@@ -176,6 +170,11 @@ code {
     height: 3.75rem;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+#next-page {
+    margin: 20px auto;
+    line-height: 3rem;
 }
 
 /*----------------------------------------*/

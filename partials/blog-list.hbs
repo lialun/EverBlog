@@ -1,18 +1,20 @@
 <div class="row">
     <div class="list-group scroll">
-        {{#foreach posts}}
-            <article href="{{url}}" class="list-group-item blog-excerpt {{post_class}}" onclick="loadBlog(this)">
-                <div class="blog-excerpt-title text-overflow">
-                    {{{title}}}
-                </div>
-                <div class="blog-excerpt-date text-overflow">
-                    {{date format="YYYY年MM月DD日"}}
-                </div>
-                <div class="blog-excerpt-content">
-                    {{excerpt characters="120"}}
-                </div>
-            </article>
-        {{/foreach}}
+        <div class="list-container">
+            {{#foreach posts}}
+                <article href="{{url}}" class="list-group-item blog-excerpt {{post_class}}" onclick="loadBlog(this)">
+                    <div class="blog-excerpt-title text-overflow">
+                        {{{title}}}
+                    </div>
+                    <div class="blog-excerpt-date text-overflow">
+                        {{date format="YYYY年MM月DD日"}}
+                    </div>
+                    <div class="blog-excerpt-content">
+                        {{excerpt characters="120"}}
+                    </div>
+                </article>
+            {{/foreach}}
+        </div>
+        {{pagination}}
     </div>
-    {{pagination}}
 </div>

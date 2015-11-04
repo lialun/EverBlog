@@ -25,7 +25,10 @@
     color: #222222;
     background-color: #FFCC00;
     webkit-box-shadow: inset -15px 0 15px -15px #040404;
-    -moz-box-shadow: inset -15px 0 15px -15px #040404;
+}
+
+#nav-footer {
+    background-color: #222222;
     box-shadow: inset -15px 0 15px -15px #040404;
 }
 
@@ -103,6 +106,9 @@
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
+#next-page {
+    color: #FFCC00;
+}
 /*----------------------------------------*/
 /*-------------文章内容（右列）--------------*/
 /*----------------------------------------*/

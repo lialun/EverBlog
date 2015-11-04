@@ -1,5 +1,5 @@
-<nav class="pagination" role="navigation" style="display: none">
-    {{#if next}}
-        <a class="next-page" href="{{page_url next}}"></a>
-    {{/if}}
-</nav>
+{{#if next}}
+    <nav id="pagination" style="text-align: center">
+        <a id="next-page" href="{{page_url next}}" onclick="loadBlogListNextPage()">下一页</a>
+    </nav>
+{{/if}}

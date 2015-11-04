@@ -31,21 +31,13 @@
             firstNavigationLink.addClass("active");
         }
     }
-////
-//$('.blog-list #list-group').infinitescroll({
-//    debug: false,
-//    loadingText: "Loading the next page...",
-//    donetext: "end",
-//    nextSelector: "#blog-list .pagination a.next-page",
-//    navSelector: "#blog-list .pagination",
-//    contentSelector: ".blog-list #list-group",
-//    itemSelector: ".blog-list #list-group > article"
-//}, function () {
-//
-//});
+    //Scroll4Ever
+    bindScroll4Ever();
+    //loading bar
     headroomInit();
 })
 (jQuery);
+
 
 function navigationFunction(obj) {
     //
@@ -89,6 +81,7 @@ function loadBlogListByURL(url, isSetPushState) {
                 history.pushState(null, null, url);
             }
             $("#blog-list").html($("#blog-list", $.parseHTML(dates)).html());
+            bindScroll4Ever();
         },
         complete: function () {
             NProgress.done();
@@ -145,6 +138,39 @@ function smallScreenPageChange(page) {
     }
 }
 
+var loading = false;
+function loadBlogListNextPage() {
+    var scope = $("#pagination #next-page");
+    scope.html('正在加载下一页...');
+    loading = true;
+    var url = $('#pagination #next-page').attr('href');
+    $('<div></div>').load(url, function (responseText, textStatus, XMLHttpRequest) {
+        if (textStatus == "success") {
+            scope.replaceWith($(this).find("#pagination #next-page"));
+            $("#blog-list .list-container").append($(this).find("#blog-list .list-container").children());
+        } else {
+            scope.html('加载失败，点击重试');
+        }
+        loading = false;
+    });
+}
+
+function bindScroll4Ever() {
+    $("#blog-list .scroll").scroll(function () {
+        var scrollTop = $("#blog-list .list-group").scrollTop();//滚动的距离
+        var listGroupScreenHeight = $("#blog-list .list-group").height();//滚动条显示高度
+        var listGroupRealHeight = 0;
+        $("#blog-list .list-container").children().each(function () {
+            listGroupRealHeight += $(this).height();
+        });
+        //滚动条的高度+滚动的距离+100>元素实际高度
+        if (listGroupScreenHeight + scrollTop + 100 >= listGroupRealHeight) {
+            if (!loading) {
+                $("#pagination #next-page").trigger('click');
+            }
+        }
+    });
+}
 function headroomInit() {
     var myElement = document.querySelector("#blog-view-header");
     if (myElement == null) {
@@ -152,8 +178,8 @@ function headroomInit() {
     }
     var headroom = new Headroom(myElement, {
         tolerance: 5,
-        "classes" : {
-            "initial" : "animated",
+        "classes": {
+            "initial": "animated",
             "pinned": "flipInX",
             "unpinned": "flipOutX"
         },
