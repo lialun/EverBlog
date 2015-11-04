@@ -1,11 +1,17 @@
 +(function ($) {
     //load theme
     if (getCookie("themeStyle") == "") {
-        var h = new Date().getHours();
-        if (h >= 7 && h <= 20) {
-            setCookie("themeStyle", "light");
-        } else {
+        if(default_theme=="default"){
+            var h = new Date().getHours();
+            if (h >= 7 && h <= 20) {
+                setCookie("themeStyle", "light");
+            } else {
+                setCookie("themeStyle", "dark");
+            }
+        }else if(default_theme=="dark"){
             setCookie("themeStyle", "dark");
+        }else{
+            setCookie("themeStyle", "light");
         }
     }
     changeTheme(getCookie("themeStyle"))
