@@ -142,7 +142,7 @@ pre[class*="language-"] {
     color: #00466B;
 }
 
-.blog-view-content code[class^="language-"], .blog-view-content code:not(.class) {
+.blog-view-content code[class^="language-"], .blog-view-content code:not([class]) {
     color: #00466B;
 }
 
