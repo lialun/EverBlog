@@ -14,21 +14,20 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     {{> config}}
     <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
-    <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{{asset "css/bootstrap.min.css"}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset "css/default.css"}}"/>
-    <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css"/>
-    <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/animate.css/3.4.0/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset "css/nprogress.css"}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset "css/animate.min.css"}}"/>
     {{ghost_head}}
 </head>
 <body class="{{body_class}}">
 {{{body}}}
 {{ghost_foot}}
-<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
-<script type="text/javascript" src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.js"></script>
-<script type="text/javascript" src="//cdn.bootcss.com/jquery.scroll4ever/1.0.0/jquery.scroll4ever.min.js"></script>
-<script type="text/javascript" src="//cdn.bootcss.com/headroom/0.7.0/headroom.min.js"></script>
-<script type="text/javascript" src="//cdn.bootcss.com/prism/0.0.1/prism.min.js"></script>
+<script type="text/javascript" src="{{asset "js/jquery.min.js"}}"></script>
+<script type="text/javascript" src="{{asset "js/bootstrap.min.js"}}"></script>
+<script type="text/javascript" src="{{asset "js/nprogress.js"}}"></script>
+<script type="text/javascript" src="{{asset "js/headroom.min.js"}}"></script>
+<script type="text/javascript" src="{{asset "js/prism.js"}}"></script>
 <script type="text/javascript" src="{{asset "js/default.js"}}"></script>
 </body>
 </html>

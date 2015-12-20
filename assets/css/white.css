@@ -1,5 +1,5 @@
 /*Use Prism to highlight code*/
-@import url("//ghost-blog.b0.upaiyun.com/css/prism/prism-default.css");
+@import url("/assets/css/prism/prism-default.css");
 
 pre[class*="language-"] {
     background: #F3F1F0;

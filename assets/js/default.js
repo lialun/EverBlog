@@ -1,19 +1,20 @@
 +(function ($) {
     //load theme
     if (getCookie("themeStyle") == "") {
-        if(default_theme=="default"){
+        if (default_theme == "default") {
             var h = new Date().getHours();
             if (h >= 7 && h <= 20) {
                 setCookie("themeStyle", "light");
             } else {
                 setCookie("themeStyle", "dark");
             }
-        }else if(default_theme=="dark"){
+        } else if (default_theme == "dark") {
             setCookie("themeStyle", "dark");
-        }else{
+        } else {
             setCookie("themeStyle", "light");
         }
-    };
+    }
+    ;
     changeTheme(getCookie("themeStyle"));
     //navigation active
     var url = window.location.href;
@@ -38,8 +39,8 @@
         }
     }
     //load default blog (if url is main page or tag, blog content page will be blank)
-    if ($("#blog-view").text().trim().length == 0 && default_post!="") {
-        loadBlogByURL(default_post,false);
+    if ($("#blog-view").text().trim().length == 0 && default_post != "") {
+        loadBlogByURL(default_post, false, false);
     }
     //Scroll4Ever
     bindScroll4Ever();
@@ -60,7 +61,7 @@ function navigationFunction(obj) {
         if (link.match("^(http|https)://" + host + "/tag/.*", "i") || link.match("^(http|https)://" + host + "/?$", "i")) {
             loadBlogListByURL(link, true);
         } else if (link.match("^(http|https)://" + host + "/.*/$", "i")) {
-            loadBlogByURL(link,true);
+            loadBlogByURL(link, true, true);
         } else {
             window.open(link, '_self')
         }
@@ -75,7 +76,7 @@ function loadBlog(obj) {
     $(obj).addClass("active");
     //load blog
     var url = $(obj).attr("href");
-    loadBlogByURL(url,true);
+    loadBlogByURL(url, true, true);
 }
 
 function loadBlogListByURL(url, isSetReplaceState) {
@@ -102,7 +103,7 @@ function loadBlogListByURL(url, isSetReplaceState) {
     });
 }
 
-function loadBlogByURL(url, isSetReplaceState) {
+function loadBlogByURL(url, isSetReplaceState, isChangeScreen) {
     $.ajax({
         type: "get",
         url: url,
@@ -115,7 +116,9 @@ function loadBlogByURL(url, isSetReplaceState) {
                 history.replaceState(null, null, url);
             }
             var html = $.parseHTML(dates);
-            smallScreenPageChange(2);
+            if (isChangeScreen) {
+                smallScreenPageChange(2);
+            }
             $("#blog-view").html($("#blog-view", html).html());
             Prism.highlightAll();
             document.title = $(".blog-view-title", html).html();
@@ -204,7 +207,7 @@ function setCookie(c_name, value, expiredays) {
     var exdate = new Date()
     exdate.setDate(exdate.getDate() + expiredays)
     document.cookie = c_name + "=" + escape(value) +
-        ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString())
+        ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString()) + ";path=/"
 }
 function getCookie(c_name) {
     if (document.cookie.length > 0) {
