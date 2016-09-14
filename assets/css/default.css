@@ -28,30 +28,6 @@ code {
     word-wrap: break-word !important;
 }
 
-.scroll {
-    -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.scroll:hover {
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.scroll::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 1);
-}
-
-.scroll::-webkit-scrollbar {
-    width: 0;
-}
-
-.scroll::-webkit-scrollbar-thumb {
-    background-color: rgba(200, 200, 233, 1);
-}
-
 .container-fluid, .row {
     height: 100%;
 }
@@ -73,6 +49,35 @@ code {
 
 .list-group-item:first-child, .list-group-item:last-child {
     border-radius: 0;
+}
+/*--------------scroll------------------*/ 
+#left-bar .scroll {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#left-bar .scroll:hover {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#left-bar .scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 1);
+}
+
+#left-bar .scroll::-webkit-scrollbar {
+    width: 0;
+}
+
+#left-bar .scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(200, 200, 233, 1);
+}
+
+#blog-view {
+    overflow:scroll;
+    overflow-x:hidden;
 }
 
 /*--------------------------------------*/

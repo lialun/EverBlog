@@ -44,6 +44,8 @@
     }
     //Scroll4Ever
     bindScroll4Ever();
+    //nicescroll
+    $("#blog-view").niceScroll();
     //loading bar
     headroomInit();
 })
@@ -123,6 +125,7 @@ function loadBlogByURL(url, isSetReplaceState, isChangeScreen) {
             Prism.highlightAll();
             document.title = $(".blog-view-title", html).html();
             headroomInit();
+            $("#blog-view").scrollTop(0);
         },
         complete: function () {
             NProgress.done();
@@ -186,6 +189,7 @@ function bindScroll4Ever() {
         }
     });
 }
+
 function headroomInit() {
     var myElement = document.querySelector("#blog-view-header");
     if (myElement == null) {
@@ -209,6 +213,7 @@ function setCookie(c_name, value, expiredays) {
     document.cookie = c_name + "=" + escape(value) +
         ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString()) + ";path=/"
 }
+
 function getCookie(c_name) {
     if (document.cookie.length > 0) {
         c_start = document.cookie.indexOf(c_name + "=")
