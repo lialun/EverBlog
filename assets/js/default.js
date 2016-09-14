@@ -45,7 +45,7 @@
     //Scroll4Ever
     bindScroll4Ever();
     //nicescroll
-    $("#blog-view").niceScroll();
+    $("#blog-view").niceScroll({touchbehavior: true,cursordragontouch: true});
     //loading bar
     headroomInit();
 })

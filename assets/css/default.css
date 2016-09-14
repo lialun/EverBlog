@@ -76,7 +76,7 @@ code {
 }
 
 #blog-view {
-    overflow:scroll;
+    overflow:scroll !important;
     overflow-x:hidden;
 }
 
