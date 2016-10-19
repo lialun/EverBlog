@@ -6,6 +6,7 @@ html {
 body {
     height: 100%;
     font-size: 100%;
+    overflow: hidden;
     font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif, "宋体" ! important;
 }
 
@@ -189,6 +190,10 @@ code {
     height: 100%;
 }
 
+#blog-view .row {
+    overflow: scroll;
+}
+
 @media (min-width: 991px) {
     #blog-view-header {
         display: none;
@@ -197,7 +202,6 @@ code {
 
 #blog-view-header {
     width: 100%;
-    position: absolute;
     z-index: 99999;
 }
 
