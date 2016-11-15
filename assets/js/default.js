@@ -100,7 +100,7 @@ function loadBlogListByURL(url, isSetReplaceState) {
             NProgress.done();
         },
         error: function () {
-            alert("失败，请稍后再试！");
+            alert("Something went wrong!");
         }
     });
 }
@@ -131,7 +131,7 @@ function loadBlogByURL(url, isSetReplaceState, isChangeScreen) {
             NProgress.done();
         },
         error: function () {
-            alert("失败，请稍后再试！");
+            alert("Something went wrong!");
         }
     });
 }
@@ -159,7 +159,7 @@ function smallScreenPageChange(page) {
 var loading = false;
 function loadBlogListNextPage() {
     var scope = $("#pagination #next-page");
-    scope.html('正在加载下一页...');
+    scope.html('Loading next...');
     loading = true;
     var url = $('#pagination #next-page').attr('href');
     $('<div></div>').load(url, function (responseText, textStatus, XMLHttpRequest) {
@@ -167,7 +167,7 @@ function loadBlogListNextPage() {
             scope.replaceWith($(this).find("#pagination #next-page"));
             $("#blog-list .list-container").append($(this).find("#blog-list .list-container").children());
         } else {
-            scope.html('加载失败，点击重试');
+            scope.html('Failed to load, click to try again');
         }
         loading = false;
     });
@@ -202,7 +202,7 @@ function headroomInit() {
             "pinned": "flipInX",
             "unpinned": "flipOutX"
         },
-        scroller: document.querySelector(".blog-view-container")
+        scroller: document.querySelector(".blog-view")
     });
     headroom.init();
 }

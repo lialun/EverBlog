@@ -1,3 +1,4 @@
+
 html {
     height: 100%;
     font-size: 16px;
@@ -75,9 +76,9 @@ code {
     background-color: rgba(200, 200, 233, 1);
 }
 
-#blog-view {
-    overflow:scroll !important;
-    overflow-x:hidden;
+#blog-view-container {
+    overflow-x: hidden !important;
+	overflow-y: auto !important;
 }
 
 /*--------------------------------------*/
@@ -145,7 +146,6 @@ code {
 
 #blog-list .tag-stats-header {
     font-size: 1.7rem;
-
 }
 
 #blog-list .tag-stats-count {
@@ -157,7 +157,6 @@ code {
     list-style-position: inside;
     margin: 0;
     padding: 7px 12px;
-
 }
 
 .blog-excerpt-title {
@@ -246,4 +245,4 @@ code {
     margin-bottom: 3rem;
 }
 
-/*博客文本样式*/
+/*博客文本样式*/ 

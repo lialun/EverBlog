@@ -5,7 +5,7 @@
 	            {{tag.name}}
             </div>
             <div class="tag-stats-count">
-                共 {{pagination.total}} 篇文章
+                {{pagination.total}} articles
             </div>
         </header>
 	    {{#foreach posts}}
@@ -14,7 +14,7 @@
 				    {{{title}}}
                 </div>
                 <div class="blog-excerpt-date text-overflow">
-				    {{date format="YYYY年MM月DD日"}}
+				    {{date format="YYYY-MM-DD"}}
                 </div>
                 <div class="blog-excerpt-content">
 				    {{excerpt characters="180"}}
