@@ -1,4 +1,6 @@
-
+﻿/*--------------------------------------*/
+/*-------------  general  --------------*/
+/*--------------------------------------*/
 html {
     height: 100%;
     font-size: 16px;
@@ -52,38 +54,33 @@ code {
     border-radius: 0;
 }
 /*--------------scroll------------------*/ 
-#left-bar .scroll {
+.scroll {
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
     overflow-x: hidden;
     overflow-y: auto;
 }
 
-#left-bar .scroll:hover {
+.scroll:hover {
     overflow-x: hidden;
     overflow-y: auto;
 }
 
-#left-bar .scroll::-webkit-scrollbar-track {
+.scroll::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 1);
 }
 
-#left-bar .scroll::-webkit-scrollbar {
+.scroll::-webkit-scrollbar {
     width: 0;
 }
 
-#left-bar .scroll::-webkit-scrollbar-thumb {
+.scroll::-webkit-scrollbar-thumb {
     background-color: rgba(200, 200, 233, 1);
 }
 
-#blog-view-container {
-    overflow-x: hidden !important;
-	overflow-y: auto !important;
-}
-
-/*--------------------------------------*/
-/*-------------导航栏（左列）--------------*/
-/*--------------------------------------*/
+/*-------------------------------------------*/
+/*-----------  navigation(left)  ------------*/
+/*-------------------------------------------*/
 #left-bar {
     padding-right: 14px;
     height: 100%;
@@ -124,9 +121,9 @@ code {
     position: relative;
 }
 
-/*----------------------------------------*/
-/*-------------文章列表（中列）--------------*/
-/*----------------------------------------*/
+/*--------------------------------------------*/
+/*----------  article list(middle)  ----------*/
+/*--------------------------------------------*/
 #blog-list {
     height: 100%;
 }
@@ -181,9 +178,9 @@ code {
     line-height: 3rem;
 }
 
-/*----------------------------------------*/
-/*-------------文章内容（右列）--------------*/
-/*----------------------------------------*/
+/*-----------------------------------------*/
+/*-----------  content(right)  ------------*/
+/*-----------------------------------------*/
 #blog-view {
     height: 100%;
 }
@@ -244,5 +241,3 @@ code {
     line-height: 1.3rem;
     margin-bottom: 3rem;
 }
-
-/*博客文本样式*/ 

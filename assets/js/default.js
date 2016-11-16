@@ -44,8 +44,6 @@
     }
     //Scroll4Ever
     bindScroll4Ever();
-    //nicescroll
-    $("#blog-view").niceScroll({touchbehavior: true,cursordragontouch: true});
     //loading bar
     headroomInit();
 })
@@ -125,7 +123,6 @@ function loadBlogByURL(url, isSetReplaceState, isChangeScreen) {
             Prism.highlightAll();
             document.title = $(".blog-view-title", html).html();
             headroomInit();
-            $("#blog-view").scrollTop(0);
         },
         complete: function () {
             NProgress.done();
@@ -175,13 +172,13 @@ function loadBlogListNextPage() {
 
 function bindScroll4Ever() {
     $("#blog-list .scroll").scroll(function () {
-        var scrollTop = $("#blog-list .list-group").scrollTop();//滚动的距离
-        var listGroupScreenHeight = $("#blog-list .list-group").height();//滚动条显示高度
+        var scrollTop = $("#blog-list .list-group").scrollTop();//scroll distance
+        var listGroupScreenHeight = $("#blog-list .list-group").height();//scroll height
         var listGroupRealHeight = 0;
         $("#blog-list .list-container").children().each(function () {
             listGroupRealHeight += $(this).height();
         });
-        //滚动条的高度+滚动的距离+100>元素实际高度
+        //scroll height + scroll distance + 100>element real height
         if (listGroupScreenHeight + scrollTop + 100 >= listGroupRealHeight) {
             if (!loading) {
                 $("#pagination #next-page").trigger('click');
@@ -202,7 +199,7 @@ function headroomInit() {
             "pinned": "flipInX",
             "unpinned": "flipOutX"
         },
-        scroller: document.querySelector(".blog-view")
+        scroller: document.querySelector(".blog-view-container")
     });
     headroom.init();
 }
