@@ -214,6 +214,8 @@ code {
     max-width: 1280px;
     min-width: 240px;
     padding: 0 1rem;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .blog-view-container header {
