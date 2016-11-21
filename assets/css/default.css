@@ -5,6 +5,7 @@ html {
 
 body {
     height: 100%;
+    overflow: hidden;
     font-size: 100%;
     font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif, "宋体" ! important;
 }
@@ -26,6 +27,15 @@ code {
     white-space: -moz-pre-wrap !important;
     white-space: -o-pre-wrap !important;
     word-wrap: break-word !important;
+}
+
+article {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+#blog-view .row {
+    overflow: scroll;
 }
 
 .container-fluid, .row {
@@ -104,6 +114,7 @@ code {
 
 #category-list .nav-item {
     margin: 0;
+    text-align: center;
 }
 
 #category-list .nav-link {
@@ -128,6 +139,7 @@ code {
 /*----------------------------------------*/
 #blog-list {
     height: 100%;
+    padding: 0 1rem;
 }
 
 #blog-list .list-group {
@@ -197,11 +209,11 @@ code {
 
 #blog-view-header {
     width: 100%;
-    position: absolute;
-    z-index: 99999;
+    z-index: 999;
 }
 
 #blog-view-header div {
+    z-index: 999;
 }
 
 #blog-view-header button {
@@ -217,7 +229,14 @@ code {
     margin: 0 auto;
     max-width: 1280px;
     min-width: 240px;
-    padding: 0 1rem;
+    padding: 0 3rem;
+ }
+
+@m
+edia (max-width: 640px) {
+    .blog-view-container {
+        padding: 0 1rem;
+    }
 }
 
 .blog-view-container header {
@@ -246,4 +265,13 @@ code {
     margin-bottom: 3rem;
 }
 
-/*博客文本样式*/
+/* large screen */
+@media (min-width: 1600px) {
+    #blog-list .blog-excerpt {
+        padding: 12px 50px;
+    }
+
+    .blog-view-container {
+        padding: 0 160px;
+    }
+}
