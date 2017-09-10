@@ -40,7 +40,7 @@
     }
     //load default blog (if url is main page or tag, blog content page will be blank)
     if ($("#blog-view").text().trim().length == 0 && default_post != "") {
-        loadBlogByURL(default_post, false, false);
+        loadBlogByURL(default_post, false, false, false);
     }
     //Scroll4Ever
     bindScroll4Ever();
@@ -61,7 +61,7 @@ function navigationFunction(obj) {
         if (link.match("^(http|https)://" + host + "/tag/.*", "i") || link.match("^(http|https)://" + host + "/?$", "i")) {
             loadBlogListByURL(link, true);
         } else if (link.match("^(http|https)://" + host + "/.*/$", "i")) {
-            loadBlogByURL(link, true, true);
+            loadBlogByURL(link, true, true, true);
         } else {
             window.open(link, '_self')
         }
@@ -76,7 +76,7 @@ function loadBlog(obj) {
     $(obj).addClass("active");
     //load blog
     var url = $(obj).attr("href");
-    loadBlogByURL(url, true, true);
+    loadBlogByURL(url, true, true, true);
 }
 
 function loadBlogListByURL(url, isSetReplaceState) {
@@ -103,7 +103,7 @@ function loadBlogListByURL(url, isSetReplaceState) {
     });
 }
 
-function loadBlogByURL(url, isSetReplaceState, isChangeScreen) {
+function loadBlogByURL(url, isSetReplaceState, isChangeScreen, isShowAlert) {
     $.ajax({
         type: "get",
         url: url,
@@ -128,7 +128,9 @@ function loadBlogByURL(url, isSetReplaceState, isChangeScreen) {
             NProgress.done();
         },
         error: function () {
-            alert("Something went wrong!");
+            if (isShowAlert) {
+                alert("Something went wrong! please try again later.");
+            }
         }
     });
 }
