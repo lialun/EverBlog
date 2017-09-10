@@ -16,7 +16,8 @@ https://github.com/lialun/EverBlog
 3. Dark or light theme toggle.
 4. Mobile-Friendly.
 
-##Usage:
+## Usage:
+0. download the last release version, and `Upload a theme` in Admin System-`Design`.
 1. The pic in the top left corner is the `Publication logo`, upload in the Admin System-`General`, default size 70*70px.
 2. Navigation list add in the Admin system-`Design`-`Navigation`.    
     You can add Tag URL which can be found in the Admin system-Tags, like "http://allan.li/tag/java/".    
