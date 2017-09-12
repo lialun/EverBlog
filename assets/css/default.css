@@ -4,12 +4,14 @@
 html {
     height: 100%;
     font-size: 16px;
+    overflow: hidden;
 }
 
 body {
     height: 100%;
     font-size: 100%;
     font-family: Helvetica, Tahoma, "Microsoft YaHei", Arial, sans-serif ! important;
+    -webkit-overflow-scrolling: touch;
 }
 
 div, a {
@@ -183,7 +185,7 @@ code {
     height: 100%;
 }
 
-@media (min-width: 991px) {
+@media (min-width: 992px) {
     #blog-view-header {
         display: none;
     }
@@ -192,7 +194,7 @@ code {
 #blog-view-header {
     width: 100%;
     position: absolute;
-    z-index: 99999;
+    z-index: 99999999;
 }
 
 #blog-view-header div {
@@ -208,12 +210,16 @@ code {
 .blog-view-container {
     height: 100%;
     position: relative;
-    margin: 0 auto;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.blog-view-container-fix-width {
     max-width: 1280px;
     min-width: 240px;
     padding: 0 1rem;
-    overflow-x: hidden;
-    overflow-y: auto;
+    margin: 0 auto;
 }
 
 .blog-view-container header {
@@ -236,42 +242,42 @@ code {
 }
 
 .blog-view-content {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 300;
     line-height: 1.6rem;
     margin-bottom: 3rem;
 }
 
 .blog-view-content blockquote {
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .blog-view-content h1 {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
     margin-top: 1.4rem;
     margin-bottom: 0.8rem;
 }
 
 .blog-view-content h2 {
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     margin-top: 1.2rem;
     margin-bottom: 0.8rem;
 }
 
 .blog-view-content h3 {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     margin-top: 1.1rem;
     margin-bottom: 0.5rem;
 }
 
 .blog-view-content h4 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-top: 0.9rem;
     margin-bottom: 0.3rem;
 }
 
 .blog-view-content h6, .blog-view-content h5 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-top: 0.7rem;
     margin-bottom: 0.2rem;
 }

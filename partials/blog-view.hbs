@@ -6,17 +6,19 @@
             </div>
         </header>
         <article class="blog-view-container {{post_class}}">
-            <header>
-                <div class="blog-view-title">
-	                {{title}}
+            <div class="blog-view-container-fix-width">
+                <header>
+                    <div class="blog-view-title">
+                        {{title}}
+                    </div>
+                    <div class="blog-view-date">
+                        {{date format="YYYY-MM-DD"}}
+                    </div>
+                </header>
+                <hr>
+                <div class="blog-view-content">
+                    {{content}}
                 </div>
-                <div class="blog-view-date">
-					{{date format="YYYY-MM-DD"}}
-                </div>
-            </header>
-            <hr>
-            <div class="blog-view-content">
-				{{content}}
             </div>
         </article>
     </div>
