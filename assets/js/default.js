@@ -195,11 +195,12 @@ function headroomInit() {
         return;
     }
     var headroom = new Headroom(myElement, {
-        tolerance: 5,
+        "offset": 100,
+        "tolerance": 0,
         "classes": {
             "initial": "animated",
-            "pinned": "flipInX",
-            "unpinned": "flipOutX"
+            "pinned": "bounceInDown",
+            "unpinned": "bounceOutUp"
         },
         scroller: document.querySelector(".blog-view-container")
     });
