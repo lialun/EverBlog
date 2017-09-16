@@ -1,0 +1,25 @@
+{{#if feature_image}}
+    <article href="{{url}}" class="list-group-item blog-excerpt {{post_class}}" onclick="loadBlog(this)">
+        <div class="blog-excerpt-img">
+            <img src="{{img_url feature_image}}"/>
+        </div>
+        <div class="blog-excerpt-title text-overflow">
+            {{{title}}}
+        </div>
+        <div class="blog-excerpt-date text-overflow">
+            {{date format="YYYY-MM-DD"}}
+        </div>
+    </article>
+{{else}}
+    <article href="{{url}}" class="list-group-item blog-excerpt {{post_class}}" onclick="loadBlog(this)">
+        <div class="blog-excerpt-title text-overflow">
+            {{{title}}}
+        </div>
+        <div class="blog-excerpt-date text-overflow">
+            {{date format="YYYY-MM-DD"}}
+        </div>
+        <div class="blog-excerpt-content">
+            {{excerpt characters="180"}}
+        </div>
+    </article>
+{{/if}}

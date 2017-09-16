@@ -2,12 +2,15 @@
     <div class="row">
         <header id="blog-view-header" class="headroom">
             <div>
-                <button onclick="javascript:smallScreenPageChange(1)" class="btn">< Back</button>
+                <button onclick="smallScreenPageChange(1)" class="btn">< Back</button>
             </div>
         </header>
         <article class="blog-view-container {{post_class}}">
             <div class="blog-view-container-fix-width">
                 <header>
+                    {{#if feature_image}}
+                        <img class="blog-view-img" src="{{img_url feature_image}}">
+                    {{/if}}
                     <div class="blog-view-title">
                         {{title}}
                     </div>

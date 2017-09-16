@@ -1,7 +1,7 @@
 {
   "name": "everblog",
   "description": "A three rows layout ghost blog theme",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "engines": {
     "ghost": ">=1.0.0"
   },
