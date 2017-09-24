@@ -101,6 +101,22 @@ pre[class*="language-"] {
 #next-page {
     color: #F9F9F9;
 }
+/*makiko*/
+.input--makiko {
+    background: #2A2C38;
+}
+
+.search-info {
+    color: #F9F9F9;
+}
+
+#search-img path {
+    fill: #F9F9F9 !important;
+}
+
+.input__label-content--makiko {
+    color: #F9F9F9;
+}
 /*----------------------------------------*/
 /*-------------文章内容（右列）--------------*/
 /*----------------------------------------*/

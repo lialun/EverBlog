@@ -1,5 +1,20 @@
 <div class="row">
-    <div class="list-group scroll">
+    <div id="search-input">
+        <span class="input input--makiko">
+            <input class="input__field input__field--makiko search-form-input" type="text"/>
+            <label class="input__label input__label--makiko">
+                <img id="search-img" class="svg" src="../assets/image/search.svg"/>
+                <span class="input__label-content input__label-content--makiko">Search</span>
+            </label>
+        </span>
+    </div>
+
+    <div class="list-group scroll search-result-list" style="display: none;">
+        <div class="list-container search-result-container">
+        </div>
+    </div>
+
+    <div class="list-group scroll blog-except-list">
         <div class="list-container">
             {{#foreach posts}}
                 {{> blog_excerpt}}

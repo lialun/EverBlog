@@ -1,20 +1,20 @@
+var needInitSearchListener = true;
 +(function ($) {
     //load theme
-    if (getCookie("themeStyle") == "") {
-        if (default_theme == "default") {
+    if (getCookie("themeStyle") === "") {
+        if (default_theme === "default") {
             var h = new Date().getHours();
             if (h >= 7 && h <= 20) {
                 setCookie("themeStyle", "light");
             } else {
                 setCookie("themeStyle", "dark");
             }
-        } else if (default_theme == "dark") {
+        } else if (default_theme === "dark") {
             setCookie("themeStyle", "dark");
         } else {
             setCookie("themeStyle", "light");
         }
     }
-    ;
     changeTheme(getCookie("themeStyle"));
     //navigation active
     var url = window.location.href;
@@ -46,9 +46,79 @@
     bindScroll4Ever();
     //loading bar
     headroomInit();
-})
-(jQuery);
+    //search
+    var ghost = new GhostSearch({
+        inputId: ".search-form-input",
+        targetId: ".search-result-container",
+        info_template: "<div class=\"search-info\">{{amount}} articles</div>",
+        result_template: "<article href={{url}} class='list-group-item blog-excerpt' onclick='loadBlog(this)'>" +
+        "<div class=\"blog-excerpt-title text-overflow\">" +
+        "{{title}}" +
+        "</div>" +
+        "<div class=\"blog-excerpt-date text-overflow\">" +
+        "{{pubDate}}" +
+        "</div>" +
+        "<div class=\"blog-excerpt-content\">" +
+        "{{excerpt_or_content}}" +
+        "</div>\n" +
+        "</article>",
+        status_change_callback: searchStatusChange
+    });
+    $(document).ajaxComplete(function () {
+        if (needInitSearchListener) {
+            ghost.listen();
+            needInitSearchListener = false;
+        }
+        svgImage();
+    });
+    //search style
+    SearchStyleInit();
 
+
+    jQuery('img.svg').each(function () {
+        var $img = jQuery(this);
+        var imgID = $img.attr('id');
+        var imgClass = $img.attr('class');
+        var imgURL = $img.attr('src');
+
+        jQuery.get(imgURL, function (data) {
+            // Get the SVG tag, ignore the rest
+            var $svg = jQuery(data).find('svg');
+
+            // Add replaced image's ID to the new SVG
+            if (typeof imgID !== 'undefined') {
+                $svg = $svg.attr('id', imgID);
+            }
+            // Add replaced image's classes to the new SVG
+            if (typeof imgClass !== 'undefined') {
+                $svg = $svg.attr('class', imgClass + ' replaced-svg');
+            }
+
+            // Remove any invalid XML tags as per http://validator.w3.org
+            $svg = $svg.removeAttr('xmlns:a');
+
+            // Check if the viewport is set, else we gonna set it if we can.
+            if (!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+                $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+            }
+
+            // Replace image with new SVG
+            $img.replaceWith($svg);
+
+        }, 'xml');
+
+    });
+})(jQuery);
+
+function searchStatusChange(isHaveSearch) {
+    if (isHaveSearch) {
+        $(".search-result-list").show();
+        $(".blog-except-list").hide();
+    } else {
+        $(".search-result-list").hide();
+        $(".blog-except-list").show();
+    }
+}
 
 function navigationFunction(obj) {
     //
@@ -93,6 +163,9 @@ function loadBlogListByURL(url, isSetReplaceState) {
             }
             $("#blog-list").html($("#blog-list", $.parseHTML(dates)).html());
             bindScroll4Ever();
+            headroomInit();
+            SearchStyleInit();
+            needInitSearchListener = true;
         },
         complete: function () {
             NProgress.done();
@@ -156,6 +229,7 @@ function smallScreenPageChange(page) {
 }
 
 var loading = false;
+
 function loadBlogListNextPage() {
     var scope = $("#pagination #next-page");
     scope.html('Loading next...');
@@ -174,10 +248,10 @@ function loadBlogListNextPage() {
 
 function bindScroll4Ever() {
     $("#blog-list .scroll").scroll(function () {
-        var scrollTop = $("#blog-list .list-group").scrollTop();//scroll distance
-        var listGroupScreenHeight = $("#blog-list .list-group").height();//scroll height
+        var scrollTop = $("#blog-list .blog-except-list").scrollTop();//scroll distance
+        var listGroupScreenHeight = $("#blog-list .blog-except-list").height();//scroll height
         var listGroupRealHeight = 0;
-        $("#blog-list .list-container").children().each(function () {
+        $("#blog-list .blog-except-list .list-container").children().each(function () {
             listGroupRealHeight += $(this).height();
         });
         //scroll height + scroll distance + 100>element real height
@@ -190,21 +264,50 @@ function bindScroll4Ever() {
 }
 
 function headroomInit() {
-    var myElement = document.querySelector("#blog-view-header");
-    if (myElement == null) {
-        return;
+    const blog_view_header_ele = document.querySelector("#blog-view-header");
+    if (blog_view_header_ele !== null) {
+        new Headroom(blog_view_header_ele, {
+            "offset": 100,
+            "tolerance": 0,
+            "classes": {
+                "initial": "animated",
+                "pinned": "bounceInDown",
+                "unpinned": "bounceOutUp"
+            },
+            scroller: document.querySelector(".blog-view-container")
+        }).init()
     }
-    var headroom = new Headroom(myElement, {
-        "offset": 100,
-        "tolerance": 0,
-        "classes": {
-            "initial": "animated",
-            "pinned": "bounceInDown",
-            "unpinned": "bounceOutUp"
-        },
-        scroller: document.querySelector(".blog-view-container")
+}
+
+function SearchStyleInit() {
+    if (!String.prototype.trim) {
+        (function () {
+            // Make sure we trim BOM and NBSP
+            var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+            String.prototype.trim = function () {
+                return this.replace(rtrim, '');
+            };
+        })();
+    }
+    [].slice.call(document.querySelectorAll('input.input__field')).forEach(function (inputEl) {
+        // in case the input is already filled..
+        if (inputEl.value.trim() !== '') {
+            inputEl.parentNode.classList.add('input--filled')
+        }
+        // events:
+        inputEl.addEventListener('focus', onInputFocus);
+        inputEl.addEventListener('blur', onInputBlur);
     });
-    headroom.init();
+
+    function onInputFocus(ev) {
+        ev.target.parentNode.classList.add('input--filled')
+    }
+
+    function onInputBlur(ev) {
+        if (ev.target.value.trim() === '') {
+            ev.target.parentNode.classList.remove('input--filled')
+        }
+    }
 }
 
 function setCookie(c_name, value, expiredays) {
@@ -252,4 +355,39 @@ function changeTheme(theme) {
         loadCss(dark_theme);
         setCookie("themeStyle", "dark");
     }
+}
+
+function svgImage() {
+    jQuery('img.svg').each(function () {
+        var $img = jQuery(this);
+        var imgID = $img.attr('id');
+        var imgClass = $img.attr('class');
+        var imgURL = $img.attr('src');
+
+        jQuery.get(imgURL, function (data) {
+            // Get the SVG tag, ignore the rest
+            var $svg = jQuery(data).find('svg');
+
+            // Add replaced image's ID to the new SVG
+            if (typeof imgID !== 'undefined') {
+                $svg = $svg.attr('id', imgID);
+            }
+            // Add replaced image's classes to the new SVG
+            if (typeof imgClass !== 'undefined') {
+                $svg = $svg.attr('class', imgClass + ' replaced-svg');
+            }
+
+            // Remove any invalid XML tags as per http://validator.w3.org
+            $svg = $svg.removeAttr('xmlns:a');
+
+            // Check if the viewport is set, else we gonna set it if we can.
+            if (!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+                $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+            }
+
+            // Replace image with new SVG
+            $img.replaceWith($svg);
+
+        }, 'xml');
+    });
 }
