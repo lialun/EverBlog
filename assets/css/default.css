@@ -132,6 +132,11 @@ code {
     margin-bottom: 0;
 }
 
+#blog-list .tag-list-group {
+    height: 100%;
+    margin-bottom: 0;
+}
+
 #blog-list .tag-stats {
     list-style-position: inside;
     margin: 0;
