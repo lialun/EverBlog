@@ -95,6 +95,10 @@ code {
     height: 70px;
 }
 
+#description {
+    color: #DDDDDD;
+}
+
 #category-list {
     padding-bottom: 100px;
 }
